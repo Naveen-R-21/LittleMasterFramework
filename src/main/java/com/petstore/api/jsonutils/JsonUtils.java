@@ -17,6 +17,7 @@ public class JsonUtils {
 	    
 	    Map<String, Object> jsonData = objectMapper.readValue(new File(filePath), new TypeReference<>() {});
 		return jsonData;
+		
 	}
 }
 
