@@ -2,6 +2,8 @@ package com.nopcommerce.web.testcases;
 
 import java.io.IOException;
 
+import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 import com.nopcommerce.web.driverbase.BrowserBase;
@@ -12,12 +14,12 @@ public class LoginTest extends BrowserBase {
 	private LoginPage loginPage;
 
 	@BeforeClass
-	public void setUpRegisterPage() throws IOException {
-		loginPage = new LoginPage(getDriver());
+	public void setUpRegisterPage(ITestContext context) throws IOException {
+		loginPage = new LoginPage(getDriver(context));
 		System.out.println("Properties loaded in testcase file");
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 1, groups="Sanity")
 	public void verifyLoginWithoutCredentials() {
 
 		loginPage.clickingLoginWithoutCredentials() ;
@@ -28,6 +30,7 @@ public class LoginTest extends BrowserBase {
 	public void verifyLoginWithoutPassword() {
 
 		loginPage.clickingLoginWithoutPassword();
+		Assert.fail();
 
 	}
 
@@ -35,6 +38,7 @@ public class LoginTest extends BrowserBase {
 	public void verifyLogin() {
 
 		loginPage.enteringValidLoginCredentials();
+
 
 	}
 

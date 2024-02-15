@@ -2,46 +2,65 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>tnp</groupId>
-  <artifactId>TutorialsNinjaProj</artifactId>
+  <artifactId>NopCommerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>TutorialsNinjaProj</name>
+  <name>NopCommerce</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
+ <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <testng.version>7.4.0</testng.version>
+        <surefire.version>2.19.1</surefire.version>
+        <selenium.version>4.8.0</selenium.version>
+        <json-simple.version>1.1.1</json-simple.version>
+        <config.file>config/sample-test.testng.xml</config.file>
+    </properties>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
-  </properties>
-
-  <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-	<dependency>
-	    <groupId>org.testng</groupId>
-	    <artifactId>testng</artifactId>
-	    <version>7.9.0</version>
-	    <scope>compile</scope>
-	</dependency>
-	
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-java-sdk</artifactId>
+            <version>LATEST</version>
+            <scope>compile</scope>
+        </dependency>
+        
 	<dependency>
     <groupId>org.yaml</groupId>
     <artifactId>snakeyaml</artifactId>
     <version>1.29</version> <!-- Use the latest version available -->
 </dependency>
-	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-	<dependency>
-	    <groupId>org.seleniumhq.selenium</groupId>
-	    <artifactId>selenium-java</artifactId>
-	    <version>4.16.1</version>
-	</dependency>
+
 	<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 <dependency>
     <groupId>io.rest-assured</groupId>
     <artifactId>rest-assured</artifactId>
     <version>5.4.0</version>
-    <scope>test</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.16.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
 </dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
@@ -80,6 +99,13 @@
     <artifactId>commons-io</artifactId>
     <version>2.11.0</version> <!-- Use the latest version available -->
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.14.0</version>
+</dependency>
+
 	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
@@ -94,21 +120,6 @@
     <artifactId>javafaker</artifactId>
     <version>1.0.2</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
-<!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
-<dependency>
-    <groupId>com.browserstack</groupId>
-    <artifactId>browserstack-local-java</artifactId>
-    <version>1.1.1</version>
-</dependency>
-
-<dependency>
-    <groupId>com.browserstack</groupId>
-    <artifactId>browserstack-java-sdk</artifactId>
-    <version>LATEST</version>
-    <scope>compile</scope>
-</dependency>
-
 
   </dependencies>
 

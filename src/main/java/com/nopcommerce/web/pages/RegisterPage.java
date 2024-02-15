@@ -120,6 +120,7 @@ public class RegisterPage extends TestBase  {
 			String expectedText = ValidationTexts.registerCompletedMessage;
 			Assert.assertEquals(actualText, expectedText, "Text does not match");
 			return this;
+			
 
 		} catch (Exception e) {
 			handleException("Error while submitting the registration form", e);

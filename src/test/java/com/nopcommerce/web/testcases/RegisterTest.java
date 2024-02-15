@@ -1,6 +1,8 @@
 package com.nopcommerce.web.testcases;
 
 import java.io.IOException;
+
+import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
@@ -11,9 +13,9 @@ public class RegisterTest extends BrowserBase {
 	private RegisterPage registerPage;
 
 	@BeforeClass
-	public void setUpRegisterPage() throws IOException {
+	public void setUpRegisterPage(ITestContext context) throws IOException {
 		Faker faker = new Faker();
-		registerPage = new RegisterPage(getDriver(), faker);
+		registerPage = new RegisterPage(getDriver(context), faker);
 	}
 	@Test(priority = 1)
 	public void registerWithoutUserData() {

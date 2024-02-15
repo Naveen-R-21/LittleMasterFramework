@@ -1,23 +1,27 @@
-userName: naveenr_cWK86j
-accessKey: HuUFEPMqLW1Byeyim7Hs
-framework: testng
+credentials:
+  userName: naveenr_cWK86j
+  accessKey: HuUFEPMqLW1Byeyim7Hs
+  
 platforms:
-  - os: Windows
-    osVersion: 10
-    browserName: Chrome
-    browserVersion: latest
+- platform: Windows
+  osVersion: 11
+  browserName: Chrome
+  browserVersion: 120
+  
+- platform: Windows
+  osVersion: 10
+  browserName: Firefox
+  browserVersion: 121
+  
+- platform: OS X
+  osVersion: Big Sur
+  browserName: Safari
+  browserVersion: 14.1
+
     
-  - os: Windows
-    osVersion: 10
-    browserName: Firefox
-    browserVersion: latest
-    
-  - os: OS X
-    osVersion: Big Sur
-    browserName: Safari
-    browserVersion: 14.1 
-    
-parallelsPerPlatform: 1
-browserstackLocal: true
-buildName: browserstack-build-1
-projectName: Selenium Hybrid Framework 
+#parallelsPerPlatform: 3
+#browserstackLocal: true
+framework: testng
+buildTag: Sample
+buildName: alpha_1.0.0
+projectName: NOP Commerce

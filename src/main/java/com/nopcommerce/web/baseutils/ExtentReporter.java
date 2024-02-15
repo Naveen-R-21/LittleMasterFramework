@@ -24,7 +24,7 @@ public class ExtentReporter {
 		String url = ExcelUtilities.browserDataFromExcel("browser", 1, 1);
 
 		// Set up the ExtentSparkReporter with the report file location
-		File extentReportFile = new File(System.getProperty("user.dir") + "/test-output/ExtentReports/extentReport.html");
+		File extentReportFile = new File(System.getProperty("user.dir") + "/ExtentReports/extentReport.html");
 		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(extentReportFile);
 
 		// Configure ExtentSparkReporter settings
@@ -38,7 +38,7 @@ public class ExtentReporter {
 
 		// Load configuration properties
 		Properties configProp = new Properties();
-		File configPropFile = new File(System.getProperty("user.dir") + "/src/main/java/com/nopcommerce/web/config/config.properties");
+		File configPropFile = new File(System.getProperty("user.dir") + "/src/main/resources/config.properties");
 
 		try (FileInputStream fisConfigProp = new FileInputStream(configPropFile)) {
 			configProp.load(fisConfigProp);

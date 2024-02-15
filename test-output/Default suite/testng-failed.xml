@@ -3,15 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nopcommerce.qa.testcases.LoginTest">
+      <class name="com.petstore.api.tests.PetsTestcases">
         <methods>
-          <include name="verifyLoginWithoutCredentials"/>
-          <include name="verifyLoginWithoutPassword"/>
-          <include name="verifyLogin"/>
-          <include name="setUpRegisterPage"/>
-          <include name="tearDown"/>
+          <include name="addPet"/>
         </methods>
-      </class> <!-- com.nopcommerce.qa.testcases.LoginTest -->
+      </class> <!-- com.petstore.api.tests.PetsTestcases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

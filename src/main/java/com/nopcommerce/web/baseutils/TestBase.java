@@ -10,6 +10,9 @@ import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
@@ -17,41 +20,50 @@ import java.util.Properties;
 
 public class TestBase {
 
-	private Properties locators;
-	private WebDriverWait wait;
-	protected WebDriver driver;
+	protected Properties properties;
+    private WebDriverWait wait;
+    protected WebDriver driver;
 	private Properties validationMessages;
+	
 
 
-	public TestBase(WebDriver driver, String Filepath) {
-		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		this.locators = loadLocators(Filepath);
-		System.out.println("Properties loaded in test base");
+	    public TestBase(WebDriver driver, String fileLocatorsPath) {
+	        this.driver = driver;
+	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	        this.properties = loadProperties(fileLocatorsPath);
+	        System.out.println("Properties loaded in test base");
+	    }
 
-	}
-
-	protected Properties loadLocators(String filePath) {
-		Properties properties = new Properties();
-		try (InputStream input = getClass().getClassLoader().getResourceAsStream(filePath)) {
-			if (input == null) {
-				throw new IOException("Unable to find the properties file: " + filePath);
-			}
-			properties.load(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Error loading properties file: " + filePath, e);
-		}
-		return properties;
-	}
+	 private Properties loadProperties(String filePath) {
+	        Properties properties = new Properties();
+	        try (InputStream input = getClass().getClassLoader().getResourceAsStream(filePath)) {
+	            if (input == null) {
+	                throw new IOException("Unable to find the properties file: " + filePath);
+	            }
+	            properties.load(input);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            throw new RuntimeException("Error loading properties file: " + filePath, e);
+	        }
+	        return properties;
+	    }
 
 	//    private void printLocators() {
 	//       // System.out.println("Locators:");
 	//        locators.forEach((key, value) -> System.out.println(key + ": " + value));
 	//    }
+	 
+	 protected String getProperty(String key) {
+	        String value = properties.getProperty(key);
+	        if (value == null) {
+	            throw new IllegalArgumentException("Property not found for key: " + key);
+	        }
+	        return value;
+	    }
+	 
 
 	protected By getLocator(String key) {
-		String locator = locators.getProperty(key);
+		String locator = properties.getProperty(key);
 		if (locator == null) {
 			throw new IllegalArgumentException("Locator not found for key: " + key);
 		}
@@ -86,6 +98,7 @@ public class TestBase {
 			throw new IllegalArgumentException("Unsupported locator type: " + locatorType);
 		}
 	}
+	
 
 	public WebElement getWebElement(String locatorKey) {
 		try {

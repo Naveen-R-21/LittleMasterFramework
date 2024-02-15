@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
+  <parameter name="executeInLocal" value="false"/>
   <listeners>
-    <listener class-name="com.nopcommerce.web.testutils.MyListeners"/>
+    <listener class-name="com.nopcommerce.web.reportutils.ReportListeners"/>
   </listeners>
   <test thread-count="5" name="NopCommerce Tests(failed)">
     <classes>
-      <class name="com.nopcommerce.web.testcases.RegisterTest">
-        <methods>
-          <include name="registerWithoutUserData"/>
-          <include name="tearDown"/>
-          <include name="registerNewUser"/>
-          <include name="setUpRegisterPage"/>
-        </methods>
-      </class> <!-- com.nopcommerce.web.testcases.RegisterTest -->
       <class name="com.nopcommerce.web.testcases.LoginTest">
         <methods>
           <include name="verifyLoginWithoutPassword"/>
-          <include name="verifyLogin"/>
-          <include name="setUpRegisterPage"/>
           <include name="tearDown"/>
-          <include name="verifyLoginWithoutCredentials"/>
+          <include name="setUpRegisterPage"/>
         </methods>
       </class> <!-- com.nopcommerce.web.testcases.LoginTest -->
     </classes>
